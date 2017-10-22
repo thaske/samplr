@@ -1,0 +1,29 @@
+3 ways to classify a sample:
+
+1) time between the transient and the hit
+2) frequency content of the hit
+	- in order to find transient, you go by volume and the part of the snare with the deepest hit
+3) Volume Envelope (aka slope of the sound after the hit)
+4) length of the sound after the hit
+
+What the MVP has to do:
+anaylze a bunch of samples
+be able to match with percentages
+
+How it works:
+
+1) Anaylze library of samples
+	a. create a profile of each sample
+2) Drop Here box
+3) Searches for similarity between other samples
+4) Returns result based on percentage
+
+Libraries:
+pyAudioAnalysis
+yaafe
+aubio
+librosa
+
+# TODO: Extend shorter files to the same length
+# TODO: Correlate multiple channels
+# TODO: Rewrite as a function
