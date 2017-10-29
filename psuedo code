@@ -1,0 +1,16 @@
+Setup Stage:
+1. Choose Sample Directory
+2. Create Database entries for all valid files
+3. Extract Amplitude Envelope for each file to save in database
+4. Use Hash IDs to keep database updated
+
+Main Stage:
+1. Drag audio file in
+2. Calculate similarity between other samples
+3. Displays results
+4. Be able to drag files out of app
+
+Extra Notes:
+Keep config file
+Optimize with Cython
+Deal with 32/24 Bit Depth files

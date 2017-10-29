@@ -6,10 +6,6 @@
 3) Volume Envelope (aka slope of the sound after the hit)
 4) length of the sound after the hit
 
-What the MVP has to do:
-anaylze a bunch of samples
-be able to match with percentages
-
 How it works:
 
 1) Anaylze library of samples
@@ -18,12 +14,4 @@ How it works:
 3) Searches for similarity between other samples
 4) Returns result based on percentage
 
-Libraries:
-pyAudioAnalysis
-yaafe
-aubio
-librosa
-
-# TODO: Extend shorter files to the same length
-# TODO: Correlate multiple channels
-# TODO: Rewrite as a function
+# TODO: 32 and 24 Bit Depth

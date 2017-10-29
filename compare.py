@@ -1,15 +1,19 @@
 from scipy.signal import hilbert
 from scipy.io import wavfile
+from scipy.stats import variation
 import numpy as np
 import scipy
 
 def compare(file1, file2):
 	snd1 = read_file(file1)
 	snd2 = read_file(file2)
+
 	snd1 = resize(snd1)
 	snd2 = resize(snd2)
+
 	env1 = amp_env(snd1)
 	env2 = amp_env(snd2)
+	
 	percentage = correlate(env1, env2)
 	return percentage
 
@@ -30,11 +34,11 @@ def resize2(snd1, snd2):
 			return (snd1, snd2)
 
 def resize(snd):
-	if len(snd) < 176400:															# Clip the sample to 5 seconds
-		size_diff = 176400 - len(snd)												# Determine how much bigger
+	if len(snd) < 132300:															# Clip the sample to 5 seconds
+		size_diff = 132300 - len(snd)												# Determine how much bigger
 		snd = np.pad(snd, (0,size_diff), 'constant', constant_values=(0,0))			# Pad with appropriate number of zeros
-	elif len(snd) > 176400:
-		snd = snd[:176401]
+	elif len(snd) > 132300:
+		snd = snd[:132301]
 	return snd
 
 def amp_env(snd):
