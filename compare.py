@@ -16,6 +16,16 @@ def compare(file1, file2):
 	percentage = correlate(env1, env2)
 	return percentage
 
+def scompare(env1, env2):
+	percentage = correlate(env1, env2)
+	return percentage
+
+def get_env(file):
+	snd = read_file(file)
+	snd = resize(snd)
+	env = amp_env(snd)
+	return env
+
 def read_file(file):
 	# Read the file
 	sampFreq, sound = wavfile.read(file)
@@ -41,7 +51,7 @@ def resize2(snd1, snd2):
 			return (snd1, snd2)
 
 def resize(snd):
-	# Clip the sample to 5 seconds
+	# Clip the sample to 5 seconds 22050
 	if len(snd) < 22050:
 		# Determine how much bigger
 		size_diff = 22050 - len(snd)
@@ -53,7 +63,8 @@ def resize(snd):
 
 def amp_env(snd):
 	# Find the amplitude envelope
-	amp_env = abs(hilbert(snd)).tolist()
+	# amp_env = abs(hilbert(snd)).tolist()
+	amp_env = abs(hilbert(snd))
 	return amp_env
 
 def correlate(env1, env2):
