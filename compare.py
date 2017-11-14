@@ -59,7 +59,7 @@ def resize2(snd1, snd2):
 			return (snd1, snd2)
 
 def resize(snd):
-	# Clip the sample to 5 seconds 22050
+	# Clip the sample to 5 seconds 220500
 	if len(snd) < 220500:
 		# Determine how much bigger
 		size_diff = 220500 - len(snd)
