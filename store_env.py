@@ -29,7 +29,6 @@ def insert_file(id, fn, dir, env):
 def do_stuff(directory):
 	for filename in os.listdir(directory):
 	    if filename.endswith(".wav"):
-
 	    	file = '{}/{}'.format(directory, filename)
 	    	insert_file(random.randint(1,101), filename, file, get_env(file))
 

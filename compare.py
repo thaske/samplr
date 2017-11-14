@@ -1,11 +1,12 @@
 from scipy.signal import hilbert
 from scipy.io import wavfile
+import soundfile as sf
 import numpy as np
 import scipy
 
 def compare(file1, file2):
-	snd1 = read_file(file1)
-	snd2 = read_file(file2)
+	snd1 = read_file2(file1)
+	snd2 = read_file2(file2)
 
 	snd1 = resize(snd1)
 	snd2 = resize(snd2)
@@ -25,6 +26,13 @@ def get_env(file):
 	snd = resize(snd)
 	env = amp_env(snd)
 	return env
+
+def read_file2(file):
+	# Read the file
+	sound, sampFreq = sf.read(file)
+	# Choose one channel of audio to compare
+	snd = sound[:,0]
+	return snd
 
 def read_file(file):
 	# Read the file
@@ -52,13 +60,13 @@ def resize2(snd1, snd2):
 
 def resize(snd):
 	# Clip the sample to 5 seconds 22050
-	if len(snd) < 22050:
+	if len(snd) < 220500:
 		# Determine how much bigger
-		size_diff = 22050 - len(snd)
+		size_diff = 220500 - len(snd)
 		# Pad with appropriate number of zeros
-		snd = np.pad(snd, (0,size_diff), 'constant', constant_values=(0,0))
-	elif len(snd) > 22050:
-		snd = snd[:22051]
+		snd = np.pad(snd, (0, size_diff), 'constant', constant_values=(0,0))
+	elif len(snd) > 220500:
+		snd = snd[:220501]
 	return snd
 
 def amp_env(snd):
