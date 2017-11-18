@@ -50,13 +50,12 @@ def resize2(snd1, snd2):
 			size_diff = len(snd1) - len(snd2)
 			# Pad with appropriate number of zeros
 			snd2 = np.pad(snd2, (0,size_diff), 'constant', constant_values=(0,0))
-			return (snd1, snd2)
 		elif len(snd1) < len(snd2):
 			# Determine how much bigger
 			size_diff = len(snd2) - len(snd1)
 			# Pad with appropriate number of zeros
 			snd1 = np.pad(snd1, (0,size_diff), 'constant', constant_values=(0,0))
-			return (snd1, snd2)
+	return (snd1, snd2)
 
 def resize(snd):
 	# Clip the sample to 5 seconds 220500
